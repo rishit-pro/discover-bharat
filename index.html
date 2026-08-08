@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Bharat | Explore Incredible India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+<nav>
+<a href="index.html" class="logo">Discover <span>Bharat</span></a>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#destinations">Destinations</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<a href="#destinations" class="nav-button">Explore India</a>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<!-- =========================================
+     HERO
+========================================= -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-tag">Curated journeys across India</div>
+<h1>Discover the<br><span>Incredible.</span></h1>
+<p>From the snow-covered Himalayas to the tropical beaches of Kerala, experience India's most unforgettable destinations through beautifully curated journeys designed for you.</p>
+<div class="hero-buttons">
+<a href="#destinations" class="btn-primary">Explore Destinations</a>
+<a href="about.html" class="btn-outline">About This Site</a>
+</div>
+</div>
+</section>
+
+<!-- =========================================
+     DESTINATIONS
+========================================= -->
+<section class="section" id="destinations">
+<div class="section-heading">
+<div class="eyebrow">Our Journeys</div>
+<h2>India, curated for you.</h2>
+<p>Choose your destination to discover the complete itinerary, package details and booking options.</p>
+</div>
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="beach">Beach</button>
+<button class="filter-btn" data-filter="mountain">Mountain</button>
+<button class="filter-btn" data-filter="heritage">Heritage</button>
+</div>
+<div class="destination-grid" id="destinationGrid"></div>
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer>
+<div>
+<h2 class="logo" style="color:white;">Discover <span>Bharat</span></h2>
+<p>Explore. Experience. Remember.</p>
+</div>
+<div>
+<strong>Travel Across India</strong>
+<p>© 2026 Discover Bharat. All rights reserved.</p>
+</div>
+</footer>
+
+<!-- =========================================
+     ITINERARY MODAL
+========================================= -->
+<div class="modal" id="itineraryModal">
+<div class="modal-content">
+<div class="modal-header" id="modalHeader">
+<button class="close" onclick="closeItinerary()">×</button>
+<div class="modal-title"><h2 id="modalTitle"></h2></div>
+</div>
+<div class="modal-body">
+<div class="trip-meta">
+<div class="meta-box"><small>Duration</small><strong id="modalDuration"></strong></div>
+<div class="meta-box"><small>Package Price</small><strong id="modalPrice"></strong></div>
+<div class="meta-box"><small>Travel Style</small><strong id="modalStyle"></strong></div>
+</div>
+<h3 style="color:#123c32;margin-bottom:25px;">Your Itinerary</h3>
+<div id="itineraryDays"></div>
+
+<h3 style="color:#123c32;margin-bottom:15px;">Choose Your Package</h3>
+<p style="color:#6f7773;font-size:13px;margin-bottom:20px;">Prices shown are for round-trip airfare only, per person.</p>
+<div id="pricingTiers" class="pricing-tiers"></div>
+
+<button class="book-now" onclick="openBooking()">Book This Journey</button>
+</div>
+</div>
+</div>
+
+<!-- =========================================
+     BOOKING FORM
+========================================= -->
+<div class="booking-modal" id="bookingModal">
+<div class="booking-box">
+<button class="booking-close" onclick="closeBooking()">×</button>
+<h2>Plan Your Journey</h2>
+<p>Tell us about your trip and our travel team will get in touch with you.</p>
+<form action="https://formspree.io/f/mqerwkro" method="POST" onsubmit="return prepareBooking()">
+<input type="hidden" name="_subject" value="New Booking Enquiry — Discover Bharat">
+<input type="hidden" name="_next" value="thank-you.html">
+<div class="form-grid">
+<div class="form-group"><label>Full Name</label><input type="text" name="Full Name" id="bookingName" required placeholder="Your name"></div>
+<div class="form-group"><label>Phone Number</label><input type="tel" name="Phone Number" id="bookingPhone" required placeholder="+91"></div>
+<div class="form-group"><label>Email Address</label><input type="email" name="email" id="bookingEmail" required placeholder="you@example.com"></div>
+<div class="form-group"><label>Travel Date</label><input type="date" name="Travel Date" id="bookingDate" required></div>
+<div class="form-group"><label>Number of Adults</label><select name="Adults" id="bookingAdults"><option>1 Adult</option><option>2 Adults</option><option>3 Adults</option><option>4 Adults</option><option>5+ Adults</option></select></div>
+<div class="form-group"><label>Number of Children</label><select name="Children" id="bookingChildren"><option>No Children</option><option>1 Child</option><option>2 Children</option><option>3 Children</option><option>4+ Children</option></select></div>
+<div class="form-group full"><label>Selected Destination</label><input type="text" name="Destination Package" id="bookingDestination" readonly></div>
+<div class="form-group full"><label>Anything Else?</label><textarea name="Notes" id="bookingNotes" placeholder="Tell us about your preferences or special requirements"></textarea></div>
+</div>
+<button class="submit-booking" type="submit">Send Booking Enquiry</button>
+</form>
+</div>
+</div>
+
+<script src="common.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
